@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="pt-16 sm:pt-32 ">
+  <div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[450px] border-[1px] p-12 rounded-md">
+    <div class="flex flex-col space-y-2 text-center">
+      <h1 class="text-2xl font-semibold tracking-tight">Sign in to your account</h1>
+    </div>
+    <div class="grid gap-6">
+      <div>
+        <div class="grid gap-3">
+          <form action="/user/login" method="GET">
+            <div class="grid gap-1">
+              <div class="relative">
+                <input type="text" name="user_id"
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 hide-password-toggle pr-10 text-[0.80rem]"
+                  placeholder="Enter your account number" value="">
+                <style>
+                  .hide-password-toggle::-ms-reveal,
+                  .hide-password-toggle::-ms-clear {
+                    visibility: hidden;
+                    pointer-events: none;
+                    display: none;
+                  }
+                </style>
+              </div>
+            </div>
+            <button type="submit"
+              class="w-full mt-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center"><span class="w-full border-t"></span></div>
+        <div class="relative flex justify-center text-xs uppercase"><span
+            class="bg-background px-2 text-muted-foreground">Or</span></div>
+      </div>
+      <div class="flex flex-col space-y-2 text-center">
+        <h1 class="text-2xl font-semibold tracking-tight">Get started with PrivX</h1>
+        <p class="text-sm text-muted-foreground">Start by generating a random account number.</p>
+      </div><a href="/user"
+        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+        type="button">Create new account</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

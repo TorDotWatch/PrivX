@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<div class="w-full flex justify-center">
+  <form method="post" action="/delete/paste">
+    <div class="w-[50rem] flex flex-col gap-4 m-3">
+      <div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2">Delete</button>
+      </div>
+      <div>
+        <div class="rounded-md border">
+          <div class="relative w-full overflow-auto">
+            <table class="w-full caption-bottom text-sm">
+              <thead class="[&amp;_tr]:border-b">
+                <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                    Id</th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                    Expire after</th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                    Burn</th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                    <div class="cursor-pointer hover:text-current">Views</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="[&amp;_tr:last-child]:border-0">
+                {% for paste in pastes %}
+                <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                  data-state="false">
+                  <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                    <input name="paste_ids[{{paste.id}}]" type="checkbox" aria-checked="false" data-state="unchecked" value="yes"
+                      class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                      aria-label="Select row" />
+                  </td>
+                  <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                    <a href="/{{ paste.id }}">{{ paste.id }}</a>
+                  </td>
+                  <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ paste.expire }}</td>
+                  <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ paste.burn }}</td>
+                  <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ paste.views }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                  <td class="p-4 align-middle">No pastes found.</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

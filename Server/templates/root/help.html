@@ -1,0 +1,55 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<span class="py-5 text-lg justify-center flex">Help &amp; FAQ</span>
+
+<div class="w-full flex justify-center">
+	<div class="bg-[var(--chal-item-bg)] p-6 border-gray-500 border-[1px] border-b-[var(--submission-bar-bg-line)] rounded-lg max-w-xl">
+		<div class="content">
+			<div class="py-5">
+				<h2>🛡️ PrivX Server</h2>
+				<p class="text-sm">The backend is built in Rust. Completely javascript-free. Works perfectly with the most strict Tor browser settings! 
+				The server does not log visitors' IP addresses or other identifying information.</p>
+			</div>
+			<div class="py-5">
+				<h2>🔑 Private key vs. IV key</h2>
+				<p class="text-sm">The private key can be embedded in Link, while the IV key cannot.
+				The keys can be used separately or together. Use both on untrusted platforms!</p>
+			</div>
+			<div class="py-5">
+				<h2>🔐 Encryption</h2>
+				<p class="text-sm">Passwords are not stored by the server! If lost, recovery is not possible! Since all data is encrypted, even PrivX administrators cannot view stored data. Each paste uses a unique encryption key.
+				The AES-256 encryption are widely used for their high security and usability. But it will not protect you if you use an unsecure communication channel to share passwords! For example, if you share your passwords in a chat application that may transmit your data to a third party! Asymmetric encryption, such as PGP, provides a higher level of encryption. It has the advantage that only the person with the PGP private key can read the message. The disadvantage is that you can only encrypt if you have the public key of the person.
+				More information https://www.openpgp.org/</p>
+			</div>
+			<div class="py-5">
+				<h2>⏳ Expiry timer</h2>
+				<p class="text-sm">After expiration, the paste is permanently deleted. This can be set from 1 minute to 1 year. The default value is 1 day.</p>
+			</div>
+			<div class="py-5">
+				<h2>💥 Burn after read</h2>
+				<p class="text-sm">The paste is permanently deleted after one view.</p>
+			</div>
+			<div class="py-5">
+				<h2>🎭 Anonymous Account System</h2>
+				<p class="text-sm">Users are assigned a unique account number upon sign-up, which they use for logging in, maintaining full anonymity and avoiding the need for personal information. 
+				Search and delete your own pastes.</p>
+			</div>
+			<div class="py-5">
+				<h2>🔓 Open Source</h2>
+				<p class="text-sm">PrivX supports transparency to the community.</p>
+			</div>
+			<div class="py-5">
+				<h2>🧅 PrivX on Tor</h2>
+				<p class="text-sm">
+					<a rel="noopener nofollow" target="_blank" href="http://5ubt5q7iirvcgrdeykiul77lvu5gnw3fsdhrh2jhrdn2kq35l4qoetyd.onion" class="block text-gray-500 hover:text-purple-logo transition-all">
+						http://5ubt5q7iirvcgrdeykiul77lvu5gnw3fsdhrh2jhrdn2kq35l4qoetyd.onion
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

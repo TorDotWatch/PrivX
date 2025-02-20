@@ -1,0 +1,86 @@
+networks:
+  db:
+  redis:
+
+services:
+  scylladb:
+    image: scylladb/scylla:6.2.2
+    container_name: scylladb
+    networks:
+      db:
+    restart: always
+    volumes:
+      - scylla-data:/var/lib/scylla
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "SELECT now() FROM system.local;"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7.4.1
+    container_name: redis
+    networks:
+      redis:
+    restart: always
+    volumes:
+      - redis-data:/data
+
+  server:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./Server
+    container_name: incognitobin_server
+    environment:
+      MAX_TITLE_LENGTH: 64
+      MAX_CONTENT_KB: 10000
+      MAX_SYNTAX_LENGTH: 64
+      MIN_PASTE_DURATION: 60
+      MAX_PASTE_DURATION: 31556952
+      TOKEN_SIZE: 150
+      SCYLLA_HOST: scylladb
+      REDIS_HOST: redis://redis/
+      RUST_BACKTRACE: $RUST_BACKTRACE
+      ALLOWED_URLS: $ALLOWED_URLS
+    networks:
+      db:
+      redis:
+    depends_on:
+      scylladb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: always
+    ports:
+      - 127.0.0.1:8181:8181
+    # Uncomment for development
+    # volumes:
+    #   - ./Server:/app
+
+  worker:
+    image: incognitobin/worker
+    container_name: incognitobin_worker
+    networks:
+      db:
+      redis:
+    environment:
+      USERS_TOKEN_SIZE: 10000
+      USERS_ID_SIZE: 10000
+      PASTES_ID_SIZE: 500000
+      SPLIT_SIZE: 10000
+      SCYLLA_HOST: scylladb
+      REDIS_HOST: redis://redis/
+    depends_on:
+      scylladb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      server:
+        condition: service_started
+    restart: always
+    command: /bin/sh -c "sleep 40 && ./IncognitoBin_worker"
+
+
+volumes:
+  scylla-data:
+  redis-data:

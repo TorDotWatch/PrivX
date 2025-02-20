@@ -1,0 +1,402 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+<form method="post" action="/paste">
+  <div class="m-4 flex flex-col items-center"><button
+      class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 hidden"
+      type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r0:"
+      data-state="closed"></button><button
+      class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 hidden"
+      type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r3:"
+      data-state="closed"></button>
+    <div
+      class="flex w-screen md:w-auto flex-col 2xl:flex-row gap-3 justify-between 2xl:items-center items-start 2xl:h-[102px] pb-4">
+      <div class="flex flex-col pl-3 md:pl-0 gap-5  md:flex-row justify-between md:w-[670px] md:gap-[4.5rem] 2xl:gap-0">
+        <div class="flex justify-between items-end w-[15rem]">
+          <div class="grid w-60 items-center gap-1.5" data-state="closed"><label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="myLabel ">Title </label><input type="text"
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="myLabel" placeholder="Your Title (Optional)" maxlength="32" name="title" value="{% if title %}{{ title}}{% endif %}"></div>
+        </div>
+        <div class="flex flex-col"><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mb-1.5"
+            for="combobox">Syntax Highlighting</label>
+          <div id="combobox">
+            <select style="width: 15rem;" name="syntax" class="form-select appearance-none pr-8 pl-2 bg-no-repeat
+             rounded h-10 bg-transparent inline-flex items-center text-sm border border-neutral-600">
+              <option value="" disabled selected>Select Language</option>
+              <option value="none">None</option>
+              <option value="abap">ABAP</option>
+              <option value="abnf">ABNF</option>
+              <option value="actionscript">ActionScript</option>
+              <option value="ada">Ada</option>
+              <option value="agda">Agda</option>
+              <option value="al">AL</option>
+              <option value="antlr4">ANTLR4</option>
+              <option value="apacheconf">ApacheConf</option>
+              <option value="apex">Apex</option>
+              <option value="apl">APL</option>
+              <option value="applescript">AppleScript</option>
+              <option value="aql">AQL</option>
+              <option value="arduino">Arduino</option>
+              <option value="arff">ARFF</option>
+              <option value="asciidoc">AsciiDoc</option>
+              <option value="asm6502">ASM 6502</option>
+              <option value="asmatmel">ASM Atmel</option>
+              <option value="aspnet">ASP.NET</option>
+              <option value="autohotkey">AutoHotkey</option>
+              <option value="autoit">AutoIt</option>
+              <option value="avisynth">AviSynth</option>
+              <option value="avro-idl">Avro IDL</option>
+              <option value="bash">Bash</option>
+              <option value="basic">Basic</option>
+              <option value="batch">Batch</option>
+              <option value="bbcode">BBCode</option>
+              <option value="bicep">Bicep</option>
+              <option value="birb">Birb</option>
+              <option value="bison">Bison</option>
+              <option value="bnf">BNF</option>
+              <option value="brainfuck">Brainfuck</option>
+              <option value="brightscript">BrightScript</option>
+              <option value="bro">Bro</option>
+              <option value="bsl">BSL</option>
+              <option value="c">C</option>
+              <option value="cfscript">CFScript</option>
+              <option value="chaiscript">ChaiScript</option>
+              <option value="cil">CIL</option>
+              <option value="clike">C-like</option>
+              <option value="clojure">Clojure</option>
+              <option value="cmake">CMake</option>
+              <option value="cobol">COBOL</option>
+              <option value="coffeescript">CoffeeScript</option>
+              <option value="concurnas">Concurnas</option>
+              <option value="coq">Coq</option>
+              <option value="cpp">C++</option>
+              <option value="crystal">Crystal</option>
+              <option value="csharp">C#</option>
+              <option value="cshtml">CSHTML</option>
+              <option value="csp">CSP</option>
+              <option value="css-extras">CSS Extras</option>
+              <option value="css">CSS</option>
+              <option value="csv">CSV</option>
+              <option value="cypher">Cypher</option>
+              <option value="d">D</option>
+              <option value="dart">Dart</option>
+              <option value="dataweave">DataWeave</option>
+              <option value="dax">DAX</option>
+              <option value="dhall">Dhall</option>
+              <option value="diff">Diff</option>
+              <option value="django">Django</option>
+              <option value="dns-zone-file">DNS Zone File</option>
+              <option value="docker">Docker</option>
+              <option value="dot">Dot</option>
+              <option value="ebnf">EBNF</option>
+              <option value="editorconfig">EditorConfig</option>
+              <option value="eiffel">Eiffel</option>
+              <option value="ejs">EJS</option>
+              <option value="elixir">Elixir</option>
+              <option value="elm">Elm</option>
+              <option value="erb">ERB</option>
+              <option value="erlang">Erlang</option>
+              <option value="etlua">Etlua</option>
+              <option value="excel-formula">Excel Formula</option>
+              <option value="factor">Factor</option>
+              <option value="false">Falselang</option>
+              <option value="firestore-security-rules">Firestore Security Rules</option>
+              <option value="flow">Flow</option>
+              <option value="fortran">Fortran</option>
+              <option value="fsharp">F#</option>
+              <option value="ftl">FTL</option>
+              <option value="gap">GAP</option>
+              <option value="gcode">G-code</option>
+              <option value="gdscript">GDScript</option>
+              <option value="gedcom">GEDCOM</option>
+              <option value="gherkin">Gherkin</option>
+              <option value="git">Git</option>
+              <option value="glsl">GLSL</option>
+              <option value="gml">GML</option>
+              <option value="gn">GN</option>
+              <option value="go-module">Go Module</option>
+              <option value="go">Go</option>
+              <option value="graphql">GraphQL</option>
+              <option value="groovy">Groovy</option>
+              <option value="haml">HAML</option>
+              <option value="handlebars">Handlebars</option>
+              <option value="haskell">Haskell</option>
+              <option value="haxe">Haxe</option>
+              <option value="hcl">HCL</option>
+              <option value="hlsl">HLSL</option>
+              <option value="hoon">Hoon</option>
+              <option value="hpkp">HPKP</option>
+              <option value="hsts">HSTS</option>
+              <option value="http">HTTP</option>
+              <option value="ichigojam">IchigoJam</option>
+              <option value="icon">Icon</option>
+              <option value="icu-message-format">ICU Message Format</option>
+              <option value="idris">Idris</option>
+              <option value="iecst">IECST</option>
+              <option value="ignore">Ignore</option>
+              <option value="inform7">Inform7</option>
+              <option value="ini">INI</option>
+              <option value="io">IO</option>
+              <option value="j">J</option>
+              <option value="java">Java</option>
+              <option value="javadoc">Javadoc</option>
+              <option value="javadoclike">Javadoc-like</option>
+              <option value="javascript">JavaScript</option>
+              <option value="javastacktrace">Java Stack Trace</option>
+              <option value="jexl">JEXL</option>
+              <option value="jolie">Jolie</option>
+              <option value="jq">JQ</option>
+              <option value="js-extras">JS Extras</option>
+              <option value="js-templates">JS Templates</option>
+              <option value="jsdoc">JSDoc</option>
+              <option value="json">JSON</option>
+              <option value="json5">JSON5</option>
+              <option value="jsonp">JSONP</option>
+              <option value="jsstacktrace">JS Stack Trace</option>
+              <option value="jsx">JSX</option>
+              <option value="julia">Julia</option>
+              <option value="keepalived">Keepalived</option>
+              <option value="keyman">Keyman</option>
+              <option value="kotlin">Kotlin</option>
+              <option value="kumir">Kumir</option>
+              <option value="kusto">Kusto</option>
+              <option value="latex">LaTeX</option>
+              <option value="latte">Latte</option>
+              <option value="less">Less</option>
+              <option value="lilypond">LilyPond</option>
+              <option value="liquid">Liquid</option>
+              <option value="lisp">Lisp</option>
+              <option value="livescript">LiveScript</option>
+              <option value="llvm">LLVM</option>
+              <option value="log">Log</option>
+              <option value="lolcode">LOLCode</option>
+              <option value="lua">Lua</option>
+              <option value="magma">Magma</option>
+              <option value="makefile">Makefile</option>
+              <option value="markdown">Markdown</option>
+              <option value="markup-templating">Markup Templating</option>
+              <option value="markup">Markup</option>
+              <option value="matlab">MATLAB</option>
+              <option value="maxscript">MaxScript</option>
+              <option value="mel">MEL</option>
+              <option value="mermaid">Mermaid</option>
+              <option value="mizar">Mizar</option>
+              <option value="mongodb">MongoDB</option>
+              <option value="monkey">Monkey</option>
+              <option value="moonscript">MoonScript</option>
+              <option value="n1ql">N1QL</option>
+              <option value="n4js">N4JS</option>
+              <option value="nand2tetris-hdl">Nand2Tetris HDL</option>
+              <option value="naniscript">NaniScript</option>
+              <option value="nasm">NASM</option>
+              <option value="neon">Neon</option>
+              <option value="nevod">Nevod</option>
+              <option value="nginx">Nginx</option>
+              <option value="nim">Nim</option>
+              <option value="nix">Nix</option>
+              <option value="nsis">NSIS</option>
+              <option value="objectivec">Objective-C</option>
+              <option value="ocaml">OCaml</option>
+              <option value="opencl">OpenCL</option>
+              <option value="openqasm">OpenQASM</option>
+              <option value="oz">Oz</option>
+              <option value="parigp">PARI/GP</option>
+              <option value="parser">Parser</option>
+              <option value="pascal">Pascal</option>
+              <option value="pascaligo">Pascaligo</option>
+              <option value="pcaxis">PCAxis</option>
+              <option value="peoplecode">PeopleCode</option>
+              <option value="perl">Perl</option>
+              <option value="php-extras">PHP Extras</option>
+              <option value="php">PHP</option>
+              <option value="phpdoc">PHPDoc</option>
+              <option value="plsql">PL/SQL</option>
+              <option value="powerquery">PowerQuery</option>
+              <option value="powershell">PowerShell</option>
+              <option value="processing">Processing</option>
+              <option value="prolog">Prolog</option>
+              <option value="promql">PromQL</option>
+              <option value="properties">Properties</option>
+              <option value="protobuf">Protobuf</option>
+              <option value="psl">PSL</option>
+              <option value="pug">Pug</option>
+              <option value="puppet">Puppet</option>
+              <option value="pure">Pure</option>
+              <option value="purebasic">PureBasic</option>
+              <option value="purescript">PureScript</option>
+              <option value="python">Python</option>
+              <option value="q">Q</option>
+              <option value="qml">QML</option>
+              <option value="qore">Qore</option>
+              <option value="qsharp">Q#</option>
+              <option value="r">R</option>
+              <option value="racket">Racket</option>
+              <option value="reason">Reason</option>
+              <option value="regex">Regex</option>
+              <option value="rego">Rego</option>
+              <option value="renpy">Ren'Py</option>
+              <option value="rest">reST</option>
+              <option value="rip">Rip</option>
+              <option value="roboconf">Roboconf</option>
+              <option value="robotframework">Robot Framework</option>
+              <option value="ruby">Ruby</option>
+              <option value="rust">Rust</option>
+              <option value="sas">SAS</option>
+              <option value="sass">SASS</option>
+              <option value="scala">Scala</option>
+              <option value="scheme">Scheme</option>
+              <option value="scss">SCSS</option>
+              <option value="shell-session">Shell Session</option>
+              <option value="smali">Smali</option>
+              <option value="smalltalk">Smalltalk</option>
+              <option value="smarty">Smarty</option>
+              <option value="sml">SML</option>
+              <option value="solidity">Solidity</option>
+              <option value="solution-file">Solution File</option>
+              <option value="soy">Soy</option>
+              <option value="sparql">SPARQL</option>
+              <option value="splunk-spl">Splunk SPL</option>
+              <option value="sqf">SQF</option>
+              <option value="sql">SQL</option>
+              <option value="squirrel">Squirrel</option>
+              <option value="stan">Stan</option>
+              <option value="stylus">Stylus</option>
+              <option value="swift">Swift</option>
+              <option value="systemd">Systemd</option>
+              <option value="t4-cs">T4 CS</option>
+              <option value="t4-templating">T4 Templating</option>
+              <option value="t4-vb">T4 VB</option>
+              <option value="tap">TAP</option>
+              <option value="tcl">TCL</option>
+              <option value="textile">Textile</option>
+              <option value="toml">TOML</option>
+              <option value="tremor">Tremor</option>
+              <option value="tsx">TSX</option>
+              <option value="tt2">TT2</option>
+              <option value="turtle">Turtle</option>
+              <option value="twig">Twig</option>
+              <option value="typescript">TypeScript</option>
+              <option value="typoscript">TypoScript</option>
+              <option value="unrealscript">UnrealScript</option>
+              <option value="uorazor">UO Razor</option>
+              <option value="uri">URI</option>
+              <option value="v">V</option>
+              <option value="vala">Vala</option>
+              <option value="vbnet">VB.NET</option>
+              <option value="velocity">Velocity</option>
+              <option value="verilog">Verilog</option>
+              <option value="vhdl">VHDL</option>
+              <option value="vim">Vim</option>
+              <option value="visual-basic">Visual Basic</option>
+              <option value="warpscript">WarpScript</option>
+              <option value="wasm">WebAssembly</option>
+              <option value="web-idl">Web IDL</option>
+              <option value="wiki">Wiki</option>
+              <option value="wolfram">Wolfram</option>
+              <option value="wren">Wren</option>
+              <option value="xeora">Xeora</option>
+              <option value="xml-doc">XML Doc</option>
+              <option value="xojo">Xojo</option>
+              <option value="xquery">XQuery</option>
+              <option value="yaml">YAML</option>
+              <option value="yang">Yang</option>
+              <option value="zig">Zig</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid items-center gap-1.5"><label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="expire" data-state="closed">Expire After</label>
+          <select style="width: 10rem;" class="form-select appearance-none pr-8 pl-2 bg-no-repeat
+          rounded h-10 bg-transparent inline-flex items-center text-sm border border-neutral-600" name="expire">
+          <option value="60" {% if expire and expire == 60 %}selected="selected"{% endif %}>1 Minute</option>
+          <option value="300" {% if expire and expire == 300 %}selected="selected"{% endif %}>5 Minutes</option>
+            <option value="600" {% if expire and expire == 600 %}selected="selected"{% endif %}>10 Minutes</option>
+            <option value="1800" {% if expire and expire == 1800 %}selected="selected"{% endif %}>30 Minutes</option>
+            <option value="3600" {% if expire and expire == 3600 %}selected="selected"{% endif %}>1 Hour</option>
+            <option value="86400" {% if expire and expire == 86400 %}selected="selected"{% endif %}>1 Day</option>
+            <option value="604800" {% if expire and expire == 604800 %}selected="selected"{% endif %}>1 Week</option>
+            <option value="1209600" {% if expire and expire == 1209600 %}selected="selected"{% endif %}>2 Weeks</option>
+            <option value="2592000" {% if expire and expire == 2592000 %}selected="selected"{% endif %}>1 Month</option>
+            <option value="7776000" {% if expire and expire == 7776000 %}selected="selected"{% endif %}>3 Months</option>
+            <option value="31104000" {% if expire and expire == 31104000 %}selected="selected"{% endif %}>1 Year</option>
+          </select>
+        </div>
+      </div>
+      <div
+        class="flex flex-col pl-3 md:pl-0 gap-5 md:gap-0 md:flex-row justify-between md:w-[776.8px] w-screen 2xl:ml-5 ml-0">
+        <div class="flex justify-between items-end w-[17.8rem]">
+          <div class="grid w-60 items-center gap-1.5"><label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="SecKey">Secret Key</label><input name="secret" type="text"
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="SecKey" placeholder="Secret Key (Optional)" maxlength="32" value="{% if secret %}{{secret}}{% endif %}"></div>
+          <button type="submit" name="gen_random_secret" value="true"
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 rounded-full p-[0.47rem] hover:bg-purple-logo border-2"
+            data-state="closed"><img class="h-[1.3rem] [&amp;>path]:fill-background" src="data:image/png;base64,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"></button>
+        </div>
+        <div class="flex justify-between items-end w-[17.8rem]">
+          <div class="grid w-60 items-center gap-1.5"><label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="SecKey">IV Key </label><input name="ivkey" type="text"
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id="SecKey" placeholder="IV Key (Optional)" maxlength="16" value="{% if ivkey %}{{ivkey}}{% endif %}"></div>
+          <button  type="submit" name="gen_random_ivkey" value="true"
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground h-10 rounded-full p-[0.47rem] hover:bg-purple-logo border-2"
+            data-state="closed"><img class="h-[1.3rem] [&amp;>path]:fill-background" src="data:image/png;base64,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"></button>
+        </div>
+        <div class="mt-0 md:mt-7">
+			<label for="burn" class="text-sm font-medium leading-none select-none flex w-[9.4rem] items-center cursor-pointer gap-2" data-state="closed">
+				<input id="burn" type="checkbox" name="burn" value="true" class="input"
+				{% if burn %}checked="checked"{% endif %} />
+					<span class="custom-checkbox"></span>
+            Burn After Read
+			</label>
+        </div>
+      </div>
+    </div>
+    <div class="w-screen md:w-[796px] 2xl:w-[1468.8px]">
+      <div class="bg-[var(--chal-item-bg)] rounded-xl border-[1px] border-slate-500/50 ">
+        <div class="rounded-t-xl text-[13px] flex justify-between  items-center h-8  py-5 border-b-2 mb-0.5">
+          <div
+            class="flex items-center [&amp;&gt;div:hover]:opacity-100 [&amp;&gt;div:hover]:bg-[var(--chal-itm-sktn-bg)] [&amp;&gt;div]:p-1.5 [&amp;&gt;div]:text-center [&amp;&gt;div]:rounded-md [&amp;&gt;div]:cursor-pointer [&amp;&gt;div]:ml-1">
+            <div class="flex gap-1 items-center"><img class="w-5 drop-shadow-[0_5px_5px_rgba(51,111,152,1)]" src="data:image/png;base64,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">Editor</div>
+          </div>
+          <div
+            class="flex items-center justify-between [&amp;&gt;div:hover]:opacity-100 [&amp;&gt;div:hover]:bg-[var(--chal-itm-sktn-bg)] [&amp;&gt;div]:p-1.5 [&amp;&gt;div]:text-center [&amp;&gt;div]:rounded-md [&amp;&gt;div]:cursor-pointer [&amp;&gt;div]:ml-1">
+            <div class="flex gap-1 items-center"><button type="submit"
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground px-4 py-2 h-8 w-14 text-sm border-[1px] border-current">Create</button>
+            </div>
+          </div>
+        </div>
+        <div class=""><textarea rows="1" name="content" placeholder="Your Content Here..."
+            class="w-full overflow-auto bg-transparent p-5 min-h-60 border-none outline-none"
+            style="height: 240px;">{% if content %}{{ content }}{% endif %}</textarea>
+          <div class="w-full hidden"><span class="block dark:hidden [&amp;&gt;pre]:p-0 [&amp;&gt;pre]:m-0">
+              <pre class="min-h-60"
+                style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(144, 164, 174); background: rgb(250, 250, 250); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: -2px 0px 0px; padding: 10px 0px 10px 5px; border-radius: 0px 0px 10px 10px; border: 0px solid gray;"><code style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(144, 164, 174); background: rgb(250, 250, 250); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 1.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(170, 191, 201);">1</span><span>No Content</span></span></code></pre>
+            </span><span class="hidden dark:block [&amp;&gt;pre]:p-0 [&amp;&gt;pre]:m-0">
+              <pre class="min-h-60"
+                style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: -2px 0px 0px; padding: 10px 0px 10px 5px; border-radius: 0px 0px 10px 10px; border: 0px solid gray;"><code style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 1.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(97, 97, 97);">1</span><span>No Content</span></span></code></pre>
+            </span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="w-full flex justify-center">
+	<a href="/help" class="text-sm text-gray-500 flex gap-1 p-3">
+		<img class="w-4 h-4" src="data:image/png;base64,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">
+			Help &amp; FAQ
+	</a>
+</div>
+{% endblock %}
+
+
+ <label>
+    <input type="checkbox" class="input">
+    <span class="custom-checkbox"></span>
+ </label>
