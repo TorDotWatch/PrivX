@@ -31,7 +31,7 @@ Available on Tor [Onion](http://5ubt5q7iirvcgrdeykiul77lvu5gnw3fsdhrh2jhrdn2kq35
 - Docker
 - Docker Compose
 
-### Installation Steps
+### Installation Steps on Localhost
 
 ```bash
 git clone https://github.com/TorDotWatch/privx
