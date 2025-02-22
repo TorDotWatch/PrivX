@@ -11,13 +11,14 @@
 - 🔑 **Improved Key**: Secure IV key insertion.
 
 - 🛡️ **End-to-End Encryption with AES-256:** Data is encrypted client-side using AES-256, a robust encryption standard, ensuring that only the user can access their information. The server remains unaware of the data's content (zero-server knowledge).
-- 🎭 **Anonymous Account System**: Users are assigned a unique account number upon sign-up, which they use for logging in, maintaining full anonymity and avoiding the need for personal information.
 - 🔐 **Zero-Knowledge Architecture**: Since all data is encrypted on the client side, **even PrivX administrators or the project owner cannot view stored data**.
 - 🖍️ **Syntax Highlighting**: PrivX supports syntax highlighting for most programming languages, making code snippets easy to read and visually appealing.
-- ⚡ **Scalable Infrastructure**: PrivX leverages Rust, ScyllaDB, and Redis, ensuring it can handle high traffic and maintain low latency.
-- 🌟 **Open Source**: As an open-source project, PrivX encourages transparency and community involvement in development.
-- ⏳ **Automatic Paste Expiry**: Set custom expiration times for your pastes, after which they are permanently deleted from the system.
+- 🎭 **Anonymous Account System**: Users are assigned a unique account number upon sign-up, which they use for logging in, maintaining full anonymity and avoiding the need for personal information.
 - 🔍 **Private Search**: Search through your own pastes without compromising privacy.
+- ⏳ **Automatic Paste Expiry**: Set custom expiration times for your pastes, after which they are permanently deleted from the system.
+- 💥 **Burn after read**: The paste is permanently deleted after one view.
+- 🔓 **Open Source**: As an open-source project, PrivX encourages transparency and community involvement in development.
+
   
 ## 🌐 Try It Online
 
@@ -61,4 +62,3 @@ Checkout Dockerfile and docker-compose file for live code reloading
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-# privx
