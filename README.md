@@ -10,7 +10,7 @@
 - 💎 **Hardened Docker**: Zero-Trust docker network.
 - 🔑 **Improved Key**: Secure IV key insertion.
 
-- 🛡️ **Encryption**: Data is encrypted using AES-256, a robust encryption standard, ensuring that only the user can access their information. The server remains unaware of the data's content (zero-server knowledge).
+- 🛡️ **Encryption**: Data is encrypted using AES-256, a robust encryption standard, ensuring that only the user can access their information. Unique encryption keys for each paste.
 - 🔐 **Zero-Knowledge Architecture**: **PrivX administrators or the project owner cannot view stored data**. 
 - 🖍️ **Syntax Highlighting**: PrivX supports syntax highlighting for most programming languages, making code snippets easy to read and visually appealing.
 - 🎭 **Anonymous Account System**: Users are assigned a unique account number upon sign-up, which they use for logging in, maintaining full anonymity and avoiding the need for personal information.
