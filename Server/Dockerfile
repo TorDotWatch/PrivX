@@ -1,4 +1,4 @@
-FROM rust:1.81.0-alpine
+FROM rust:1.85-alpine
 WORKDIR /app
 COPY Cargo.toml ./
 COPY resources ./resources
